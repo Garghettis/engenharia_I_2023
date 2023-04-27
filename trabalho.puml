@@ -1,0 +1,58 @@
+@startuml universidade
+
+left to right direction
+
+package Academicos{
+    actor professor
+    actor reitor
+    actor cordenador
+    actor aluno
+    actor financeiro
+ 
+    usecase "Dar aula" as Z
+    professor --> Z
+
+    usecase "Administrar Curso" as X
+    cordenador --> X
+
+    usecase "Orientar Matriculas" as C
+    cordenador --> C
+
+    usecase "Administrar Universidade" as V
+    reitor --> V
+
+    usecase "Representar Universidade" as B
+    reitor --> B
+
+    usecase "Receber" as M
+    professor --> M
+    reitor --> M
+    cordenador --> M
+    financeiro -- M
+
+    usecase "Assistir Aula" as A
+    aluno --> A
+
+    usecase "Pagar" as S
+    aluno --> S
+    financeiro --> S
+
+    usecase "Gerenciar receitas e despesas" as D
+    fincanceiro --> D
+
+}
+
+package Operacional {
+    actor funcionario
+    actor vigilante
+    actor faxineiro
+
+    usecase "Prestar Servicos" as N
+    funcionario --> N
+    vigilante --> N
+    faxineiro --> N
+}
+
+
+
+@enduml
