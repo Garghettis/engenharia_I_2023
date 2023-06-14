@@ -1,0 +1,60 @@
+@startuml
+
+class Cliente {
+  - IDCliente: int
+  - Nome: string
+  - Endereco: string
+  - Email: string
+  - Telefone: string
+}
+
+class Produto {
+  - IDProduto: int
+  - Nome: string
+  - Descricao: string
+  - Preco: decimal
+  - Disponibilidade: boolean
+}
+
+class Pedido {
+  - IDPedido: int
+  - Data: date
+  - Status: string
+}
+
+class Carrinho {
+  - IDCarrinho: int
+}
+
+class Funcionario {
+  - IDFuncionario: int
+  - Nome: string
+  - Cargo: string
+  - Email: string
+  - Telefone: string
+}
+
+class Estoque {
+  - IDProduto: int
+  - Quantidade: int
+}
+
+class Fornecedor {
+  - IDFornecedor: int
+  - Nome: string
+  - Endereco: string
+  - Email: string
+  - Telefone: string
+}
+
+Cliente "1" -- "1..*" Pedido
+Cliente "1" -- "1..*" Carrinho
+Pedido "1" -- "1..*" Produto
+Pedido "1" -- "1" Cliente
+Produto "1" -- "1..*" Pedido
+Produto "1" -- "1..*" Estoque
+Estoque "1" -- "1" Produto
+Produto "1" -- "1..*" Fornecedor
+Fornecedor "1" -- "1..*" Produto
+
+@enduml
